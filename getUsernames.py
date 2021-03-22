@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup as soup
 
 def get_usernames(organization_id):
 
-    users = []
+    users = {}
 
     my_url = 'https://codeforces.com/ratings/organization/865'
     # headers={'User-Agent': 'Mozilla/5.0'} for avpiding http error
@@ -22,9 +22,11 @@ def get_usernames(organization_id):
             line.append(cell.get_text().strip())
             # print(cell)
         if line:
-            #print(line[1])
-            users.append(line[1])
+            #print(line[1], line[3])
+            users[line[1]] = line[3]
 
+    #print(users)
     return users
 
-# get_usernames(846)
+
+get_usernames(846)

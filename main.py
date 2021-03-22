@@ -14,7 +14,10 @@ if __name__ == "__main__":
     
     newList = getUsernames.get_usernames(452)
 
-    for username in newList:
+    for key in newList:
+        username = key
+
+        print(username, newList[username])
 
         data = requests.get("https://codeforces.com/api/user.status?handle=" +
                             username + "&from=1&count=500").json()
