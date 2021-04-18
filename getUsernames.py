@@ -1,3 +1,4 @@
+  
 import bs4
 from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup as soup
@@ -7,7 +8,8 @@ def get_usernames(organization_id):
 
     users = {}
 
-    my_url = 'https://codeforces.com/ratings/organization/865'
+    my_url = 'https://codeforces.com/ratings/organization/'
+    my_url += str(organization_id)
     # headers={'User-Agent': 'Mozilla/5.0'} for avpiding http error
     req = Request(my_url, headers={'User-Agent': 'Mozilla/5.0'})
     page_html = urlopen(req).read()
@@ -28,5 +30,3 @@ def get_usernames(organization_id):
     #print(users)
     return users
 
-
-get_usernames(846)
